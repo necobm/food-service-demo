@@ -6,3 +6,8 @@ api_fruits:
     type: attribute
     resource: ../src/Controller/FruitController.php
     prefix: api/v1/fruits
+
+api_vegetables:
+    type: attribute
+    resource: ../src/Controller/VegetableController.php
+    prefix: api/v1/vegetables
