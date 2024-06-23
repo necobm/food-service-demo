@@ -1,0 +1,67 @@
+{
+	"info": {
+		"_postman_id": "a8c2f9b0-0f7f-4eef-97b8-a1002508c09d",
+		"name": "Fruits",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "11366921"
+	},
+	"item": [
+		{
+			"name": "Get Collection",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "0.0.0.0:8484/api/v1/fruits/",
+					"host": [
+						"0",
+						"0",
+						"0",
+						"0"
+					],
+					"port": "8484",
+					"path": [
+						"api",
+						"v1",
+						"fruits",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Fruit",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Example fruit 2\",\n    \"type\": \"fruit\",\n    \"quantity\": 20,\n    \"unit\": \"kg\"\n  }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "0.0.0.0:8484/api/v1/fruits/",
+					"host": [
+						"0",
+						"0",
+						"0",
+						"0"
+					],
+					"port": "8484",
+					"path": [
+						"api",
+						"v1",
+						"fruits",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

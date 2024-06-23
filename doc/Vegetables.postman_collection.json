@@ -1,0 +1,66 @@
+{
+	"info": {
+		"_postman_id": "efce3dfb-f781-4f22-bcf2-fb2a354256cc",
+		"name": "Vegetables",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "11366921"
+	},
+	"item": [
+		{
+			"name": "Get Collection",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "0.0.0.0:8484/api/v1/vegetables",
+					"host": [
+						"0",
+						"0",
+						"0",
+						"0"
+					],
+					"port": "8484",
+					"path": [
+						"api",
+						"v1",
+						"vegetables"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Vegetable",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Example vegetable 1\",\n    \"type\": \"vegetable\",\n    \"quantity\": 15,\n    \"unit\": \"kg\"\n  }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "0.0.0.0:8484/api/v1/vegetables/",
+					"host": [
+						"0",
+						"0",
+						"0",
+						"0"
+					],
+					"port": "8484",
+					"path": [
+						"api",
+						"v1",
+						"vegetables",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

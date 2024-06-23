@@ -49,6 +49,6 @@ docker run -it -w/app -v$(pwd):/app tturkowski/fruits-and-vegetables bin/phpunit
 
 ### ⌨️ Run development server
 ```bash
-docker run -it -w/app -v$(pwd):/app -p8080:8080 tturkowski/fruits-and-vegetables php -S 0.0.0.0:8080 -t /app/public
-# Open http://127.0.0.1:8080 in your browser
+docker run -it -w/app -v$(pwd):/app -p8484:8484 tturkowski/fruits-and-vegetables php -S 0.0.0.0:8484 -t /app/public
+# Open http://127.0.0.1:8484 in your browser
 ```
