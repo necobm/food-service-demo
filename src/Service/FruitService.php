@@ -3,6 +3,7 @@
 namespace App\Service;
 
 use App\Dto\Food;
+use App\Exception\FoodTypeNotSupportedException;
 use App\Repository\FruitRepository;
 
 class FruitService
@@ -11,9 +12,14 @@ class FruitService
         private FruitRepository $fruitRepository
     ) {
     }
-    public function addFruit(Food $fruit): void
-    {
 
+    /**
+     * @throws FoodTypeNotSupportedException
+     */
+    public function addFruit(Food $fruit): Food
+    {
+        $this->fruitRepository->add($fruit);
+        return $fruit;
     }
 
     public function getCollection(): array

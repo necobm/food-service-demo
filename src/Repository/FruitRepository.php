@@ -35,7 +35,14 @@ class FruitRepository
         if (!$this->support($food)) {
             throw new FoodTypeNotSupportedException("This repository only supports " . self::FOOD_TYPE_ALLOWED);
         }
+        $dataSource = json_decode($this->storageService->getRequest(), true);
+        $newId = $this->generateId($dataSource);
+        $food->setId($newId);
+
         $this->fruitCollection[] = $food;
+        $dataSource[] = $food;
+
+        $this->storageService->updateRequest(json_encode($dataSource));
     }
 
     public function list(): array
@@ -51,5 +58,11 @@ class FruitRepository
     private function support(Food $food): bool
     {
         return $food->getType() === self::FOOD_TYPE_ALLOWED;
+    }
+
+    private function generateId(array $dataSource): int
+    {
+        $lastItem = $dataSource[count($dataSource) - 1];
+        return $lastItem['id'] + 1;
     }
 }

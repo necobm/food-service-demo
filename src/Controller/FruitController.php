@@ -3,9 +3,12 @@
 namespace App\Controller;
 
 use App\Dto\Food;
+use App\Dto\Fruit;
+use App\Exception\FoodTypeNotSupportedException;
 use App\Service\FruitService;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\HttpKernel\Attribute\MapRequestPayload;
 use Symfony\Component\Routing\Annotation\Route;
 
 class FruitController extends AbstractController
@@ -23,5 +26,17 @@ class FruitController extends AbstractController
         return new JsonResponse([
             'fruits' => $fruitsCollection
         ]);
+    }
+
+    /**
+     * @throws FoodTypeNotSupportedException
+     */
+    #[Route(path: '/', name: 'api_add_fruit', methods: ['POST'])]
+    public function add(
+        #[MapRequestPayload] Fruit $fruit
+    ): JsonResponse
+    {
+        $this->fruitService->addFruit($fruit);
+        return new JsonResponse($fruit);
     }
 }

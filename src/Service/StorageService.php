@@ -25,6 +25,6 @@ class StorageService
     public function updateRequest(string $request): void
     {
         $this->request = $request;
-        // TODO: persist in JSON file
+        file_put_contents($this->basePath . '/' . self::DATA_SOURCE_PATH, $request);
     }
 }
