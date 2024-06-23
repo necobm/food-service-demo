@@ -2,19 +2,29 @@
 
 namespace App\Service;
 
+use Symfony\Component\DependencyInjection\Attribute\Autowire;
+
 class StorageService
 {
+    protected const DATA_SOURCE_PATH = "request.json";
     protected string $request = '';
 
     public function __construct(
-        string $request
+        #[Autowire('%kernel.project_dir%')]
+        private string $basePath,
     )
     {
-        $this->request = $request;
+        $this->request = file_get_contents($this->basePath . '/' . self::DATA_SOURCE_PATH);
     }
 
     public function getRequest(): string
     {
         return $this->request;
+    }
+
+    public function updateRequest(string $request): void
+    {
+        $this->request = $request;
+        // TODO: persist in JSON file
     }
 }
